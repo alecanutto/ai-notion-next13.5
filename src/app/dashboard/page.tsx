@@ -1,3 +1,4 @@
+import CreateNoteDialog from '@/components/create-note-dialog'
 import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
 import { db } from '@/lib/db'
@@ -47,6 +48,7 @@ const DashboardPage = async () => {
 
           {/* display all the notes */}
           <div className="grid sm:grid-cols-3 md:grid-cols-5 grid-cols-1 gap-3">
+            <CreateNoteDialog />
             {notes.map((note) => {
               return (
                 <a href={`/notebook/${note.id}`} key={note.id}>
