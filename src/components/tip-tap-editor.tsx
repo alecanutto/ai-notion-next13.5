@@ -10,10 +10,13 @@ import { StarterKit } from '@tiptap/starter-kit'
 import { Button } from './ui/button'
 import { NoteType } from '@/lib/db/schema'
 import { useDebounce } from '@/hooks/use-debounce'
+import { useToast } from '@/hooks/use-toast'
 
 type Props = { note: NoteType }
 
 const TipTapEditor = ({ note }: Props) => {
+  const { toast } = useToast()
+
   const [editorState, setEditorState] = React.useState(
     note.editorState || `<h1>${note.name}</h1>`,
   )
@@ -69,9 +72,15 @@ const TipTapEditor = ({ note }: Props) => {
       },
       onError: (err) => {
         console.error(err)
+        toast({
+          variant: 'destructive',
+          description: 'Failed to update this notebook.',
+          duration: 1500,
+        })
       },
     })
-  }, [debouncedEditorState, saveNote])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [debouncedEditorState])
   return (
     <>
       <div className="flex">

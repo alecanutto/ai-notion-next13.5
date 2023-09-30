@@ -8,6 +8,7 @@ dotenv.config({
 export default {
   driver: 'pg',
   schema: './src/lib/db/schema.ts',
+  out: './drizzle',
   dbCredentials: {
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     connectionString: process.env.DATABASE_URL!,

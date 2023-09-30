@@ -20,8 +20,8 @@ import { Input } from './ui/input'
 import { useToast } from '@/hooks/use-toast'
 
 const CreateNoteDialog = () => {
-  const router = useRouter()
   const { toast } = useToast()
+  const router = useRouter()
   const [input, setInput] = React.useState('')
   const [open, setOpen] = React.useState(false)
 
@@ -55,7 +55,6 @@ const CreateNoteDialog = () => {
     }
     createNotebook.mutate(undefined, {
       onSuccess: ({ noteId }) => {
-        console.log('created new note:', { noteId })
         // hit another endpoint to uplod the temp dalle url to permanent firebase url
         uploadToFirebase.mutate(noteId)
         router.push(`/notebook/${noteId}`)

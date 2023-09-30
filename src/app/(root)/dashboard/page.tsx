@@ -57,7 +57,7 @@ const DashboardPage = async () => {
                       width={400}
                       height={200}
                       alt={note.name}
-                      src={note.imageUrl || ''}
+                      src={note.imageUrl ?? ''}
                     />
                     <div className="p-4">
                       <h3 className="text-xl font-semibold text-gray-900">

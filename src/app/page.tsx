@@ -16,7 +16,6 @@ export default function Home() {
           <TypewriterTitle />
         </h2>
         <div className="mt-8"></div>
-
         <div className="flex justify-center">
           <Link href="/dashboard">
             <Button className="bg-green-600">
